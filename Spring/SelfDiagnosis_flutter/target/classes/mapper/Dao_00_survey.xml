@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flutter.base.dao.Dao_00_survey">
+
+	<select id="getSurvey01" resultType="com.flutter.base.model.Dto_00_survey">
+	SELECT * FROM survey WHERE category = 1;
+
+	</select>
+	<select id="getSurvey02" resultType="com.flutter.base.model.Dto_00_survey">
+	SELECT * FROM survey WHERE category = 2;
+
+	</select>
+	<select id="getSurvey03" resultType="com.flutter.base.model.Dto_00_survey">
+	SELECT * FROM survey WHERE category = 3;
+
+	</select>
+	<insert id="save">
+	INSERT INTO answer (a_uid, a_sSeq, a_category, a_answer, a_insertdate, a_deleted, a_result)
+	
+	VALUE (#{uid}, #(sSeq), #{category}, #{answer}, now(), 0, #{result})
+	
+	
+	</insert>
+
+
+
+
+
+
+</mapper>

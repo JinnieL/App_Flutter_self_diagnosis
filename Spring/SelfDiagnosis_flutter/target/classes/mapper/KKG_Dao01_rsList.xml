@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.flutter.base.dao.KKG_Dao01_rsList">
+
+	<select id="getCardioList" resultType="com.flutter.base.model.KKG_Dto01_forAnswer">
+		SELECT DISTINCT a_insertdate, a_result 
+		FROM answer 
+		WHERE a_deleted=0 AND a_uid = #{uid} AND a_category = 1	
+	</select>
+
+	<select id="getDiabetesList" resultType="com.flutter.base.model.KKG_Dto01_forAnswer">
+		SELECT DISTINCT a_insertdate, a_result 
+		FROM answer 
+		WHERE a_deleted=0 AND a_uid = #{uid} AND a_category = 2	
+	</select>
+
+	<select id="getDiamentiaList" resultType="com.flutter.base.model.KKG_Dto01_forAnswer">
+		SELECT DISTINCT a_insertdate, a_result 
+		FROM answer 
+		WHERE a_deleted=0 AND a_uid = #{uid} AND a_category = 3	
+	</select>
+
+	<select id="getDetailList" resultType="com.flutter.base.model.KKG_Dto02_forSurvey">
+		SELECT s.sSeq ,s.question, a.a_answer, a.a_insertdate 
+		FROM answer AS a, survey AS s   
+		WHERE a_deleted=0 AND  a.a_insertdate = #{iDate} AND a_uid = #{uid} AND s.sSeq = a.a_sSeq	
+	</select>
+
+	<select id="getWholeList" resultType="com.flutter.base.model.KKG_Dto01_forAnswer">
+		SELECT DISTINCT a_insertdate,  a_category, a_result 
+		FROM answer 
+		WHERE a_deleted=0 AND a_uid = #{uid}
+	</select>
+
+
+
+
+
+</mapper>
