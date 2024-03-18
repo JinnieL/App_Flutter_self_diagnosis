@@ -347,8 +347,8 @@ class _LoginState extends State<Login> with WidgetsBindingObserver {
 
   login() async {
     var url = Uri.parse(
-        "http://localhost:8080/.login?uid=${uidController.text.trim()}&upassword=${upasswordController.text.trim()}");
-    //"http://localhost:8080/Flutter/project/login_schdule_flutter.jsp?uid=${uidController.text.trim()}&upassword=${upasswordController.text.trim()}");
+        // "http://localhost:8080/.login?uid=${uidController.text.trim()}&upassword=${upasswordController.text.trim()}");
+    "http://localhost:8080/Flutter/project/login_schdule_flutter.jsp?uid=${uidController.text.trim()}&upassword=${upasswordController.text.trim()}");
     var response = await http.get(url);
     var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
     List result = dataConvertedJSON["results"];
